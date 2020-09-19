@@ -1,0 +1,29 @@
+<div class="sidenav">
+  <nav class="nav flex-column">
+    <header>
+      <img src="../../../assets/images/cinema_booking.png">
+      <p>Cinema Booking</p>
+    </header>
+
+    <div class="links">
+      <div class="cinema" *ngFor="let cinema of cinemas; let cinemaIndex = index">
+        <p class="nav-link" (click)="openCinemaHallsHandler(cinemaIndex)">{{ cinema.cinema }}</p>
+
+        <div class="halls" *ngIf="cinema.isShowHalls">
+          <div *ngFor="let cinemaHalls of cinema.halls; let hallIndex = index">
+            <p class="nav-link" (click)="openHallMoviesHandler(cinemaIndex, hallIndex)">{{ cinemaHalls.hall }}</p>
+
+            <div class="movies" *ngIf="cinemaHalls.isShowMovies">
+              <div *ngFor="let cinemaMovies of cinemaHalls.movies">
+                <div>
+                  <span class="dot"></span>
+                  <p class="nav-link">{{ cinemaMovies.movie }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

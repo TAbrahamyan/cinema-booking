@@ -1,0 +1,348 @@
+[
+  {
+    "cinema": "Cinema 1",
+    "halls": [
+      {
+        "hall": "Hall 1",
+        "movies": [
+          {
+            "movie": "Movie 1",
+            "sessions": [
+              {
+                "session": "12:00, 22 Nov, 2020",
+                "seats": 32
+              },
+              {
+                "session": "21:00, 12 Oct, 2020",
+                "seats": 32
+              },
+              {
+                "session": "15:00, 30 Dec, 2020",
+                "seats": 32
+              }
+            ]
+          },
+          {
+            "movie": "Movie 2",
+            "sessions": [
+              {
+                "session": "12:00, 24 Dec, 2020",
+                "seats": 32
+              },
+              {
+                "session": "00:00, 12 Dec, 2008",
+                "seats": 32
+              },
+              {
+                "session": "17:00, 22 Oct, 2003",
+                "seats": 32
+              }
+            ]
+          },
+          {
+            "movie": "Movie 3",
+            "sessions": [
+              {
+                "session": "13:00, 22 Dec, 2000",
+                "seats": 32
+              },
+              {
+                "session": "21:00, 12 Nov, 1995",
+                "seats": 32
+              },
+              {
+                "session": "15:00, 22 Oct, 2017",
+                "seats": 32
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "hall": "Hall 2",
+        "movies": [
+          {
+            "movie": "Movie 1",
+            "sessions": [
+              {
+                "session": "12:00, 22 Nov, 2020",
+                "seats": 24
+              },
+              {
+                "session": "21:00, 12 Oct, 2020",
+                "seats": 24
+              },
+              {
+                "session": "15:00, 30 Dec, 2020",
+                "seats": 24
+              }
+            ]
+          },
+          {
+            "movie": "Movie 2",
+            "sessions": [
+              {
+                "session": "12:00, 24 Dec, 2020",
+                "seats": 24
+              },
+              {
+                "session": "00:00, 12 Dec, 2008",
+                "seats": 24
+              },
+              {
+                "session": "17:00, 22 Oct, 2003",
+                "seats": 24
+              }
+            ]
+          },
+          {
+            "movie": "Movie 3",
+            "sessions": [
+              {
+                "session": "13:00, 22 Dec, 2000",
+                "seats": 24
+              },
+              {
+                "session": "21:00, 12 Nov, 1995",
+                "seats": 24
+              },
+              {
+                "session": "15:00, 22 Oct, 2017",
+                "seats": 24
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "hall": "Hall 3",
+        "movies": [
+          {
+            "movie": "Movie 1",
+            "sessions": [
+              {
+                "session": "12:00, 22 Nov, 2020",
+                "seats": 40
+              },
+              {
+                "session": "21:00, 12 Oct, 2020",
+                "seats": 40
+              },
+              {
+                "session": "15:00, 30 Dec, 2020",
+                "seats": 40
+              }
+            ]
+          },
+          {
+            "movie": "Movie 2",
+            "sessions": [
+              {
+                "session": "12:00, 24 Dec, 2020",
+                "seats": 40
+              },
+              {
+                "session": "00:00, 12 Dec, 2008",
+                "seats": 40
+              },
+              {
+                "session": "17:00, 22 Oct, 2003",
+                "seats": 40
+              }
+            ]
+          },
+          {
+            "movie": "Movie 3",
+            "sessions": [
+              {
+                "session": "13:00, 22 Dec, 2000",
+                "seats": 40
+              },
+              {
+                "session": "21:00, 12 Nov, 1995",
+                "seats": 40
+              },
+              {
+                "session": "15:00, 22 Oct, 2017",
+                "seats": 40
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "cinema": "Cinema 2",
+    "halls": [
+      {
+        "hall": "Hall 1",
+        "movies": [
+          {
+            "movie": "Movie 1",
+            "sessions": [
+              {
+                "session": "14:00, 23 Nov, 2020",
+                "seats": 32
+              },
+              {
+                "session": "22:00, 13 Oct, 2020",
+                "seats": 32
+              },
+              {
+                "session": "16:00, 31 Dec, 2020",
+                "seats": 32
+              }
+            ]
+          },
+          {
+            "movie": "Movie 2",
+            "sessions": [
+              {
+                "session": "13:00, 25 Dec, 2020",
+                "seats": 32
+              },
+              {
+                "session": "01:00, 11 Dec, 2008",
+                "seats": 32
+              },
+              {
+                "session": "10:00, 20 Oct, 2003",
+                "seats": 32
+              }
+            ]
+          },
+          {
+            "movie": "Movie 3",
+            "sessions": [
+              {
+                "session": "09:00, 21 Dec, 2000",
+                "seats": 32
+              },
+              {
+                "session": "22:00, 10 Nov, 1995",
+                "seats": 32
+              },
+              {
+                "session": "18:00, 23 Oct, 2017",
+                "seats": 32
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "hall": "Hall 2",
+        "movies": [
+          {
+            "movie": "Movie 1",
+            "sessions": [
+              {
+                "session": "11:00, 24 Nov, 2020",
+                "seats": 24
+              },
+              {
+                "session": "17:00, 15 Oct, 2020",
+                "seats": 24
+              },
+              {
+                "session": "08:00, 29 Dec, 2020",
+                "seats": 24
+              }
+            ]
+          },
+          {
+            "movie": "Movie 2",
+            "sessions": [
+              {
+                "session": "11:00, 18 Dec, 2020",
+                "seats": 24
+              },
+              {
+                "session": "04:00, 12 Dec, 2008",
+                "seats": 24
+              },
+              {
+                "session": "05:00, 29 Oct, 2003",
+                "seats": 24
+              }
+            ]
+          },
+          {
+            "movie": "Movie 3",
+            "sessions": [
+              {
+                "session": "06:00, 25 Dec, 2000",
+                "seats": 24
+              },
+              {
+                "session": "05:00, 08 Nov, 1995",
+                "seats": 24
+              },
+              {
+                "session": "02:00, 03 Oct, 2017",
+                "seats": 24
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "hall": "Hall 3",
+        "movies": [
+          {
+            "movie": "Movie 1",
+            "sessions": [
+              {
+                "session": "07:00, 09 Nov, 2020",
+                "seats": 40
+              },
+              {
+                "session": "06:00, 08 Oct, 2020",
+                "seats": 40
+              },
+              {
+                "session": "05:00, 01 Dec, 2020",
+                "seats": 40
+              }
+            ]
+          },
+          {
+            "movie": "Movie 2",
+            "sessions": [
+              {
+                "session": "09:00, 20 Dec, 2020",
+                "seats": 40
+              },
+              {
+                "session": "13:00, 15 Dec, 2008",
+                "seats": 40
+              },
+              {
+                "session": "15:00, 15 Oct, 2003",
+                "seats": 40
+              }
+            ]
+          },
+          {
+            "movie": "Movie 3",
+            "sessions": [
+              {
+                "session": "19:00, 26 Dec, 2000",
+                "seats": 40
+              },
+              {
+                "session": "23:00, 03 Nov, 1995",
+                "seats": 40
+              },
+              {
+                "session": "02:00, 23 Oct, 2017",
+                "seats": 40
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
