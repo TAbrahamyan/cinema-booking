@@ -1,4 +1,12 @@
-@import '../../app.scss';
+@import '../../app';
+
+.menu {
+  display: $none;
+  margin: 0.3rem;
+  cursor: $pointer;
+
+  @media (max-width: 956px) { display: block }
+}
 
 .sidenav {
   display: $displayFlex;
@@ -7,76 +15,54 @@
     box-shadow: -1px 0px 30px -12px $defaultColor;
     background: $whiteColor;
     width: 300px;
-    height: 100vh;
-    position: fixed;
+    height: 100%;
+    position: $fixedPosition;
     overflow-y: scroll;
-    user-select: none;
+    user-select: $none;
+    z-index: 796;
 
     header {
       display: $displayFlex;
       background: $whiteColor;
       border-bottom: 1px solid $defaultColor;
-      position: fixed;
+      position: $fixedPosition;
       width: 300px;
       cursor: $pointer;
+      outline: $none;
 
-      p {
-        margin: 0.4rem 0.3rem;
-        background: $whiteColor;
-      }
-
-      img {
-        background: $whiteColor;
-        width: 30px;
-        height: 30px;
-        margin: 0.4rem 0.3rem;
-      }
+      p, img { background: $whiteColor; margin: 0.4rem }
+      img { width: 30px; height: 30px }
     }
 
     .links {
       background: $whiteColor;
-      margin-top: 2.4rem;
+      margin-top: 2.3rem;
 
       .cinema {
         p {
-          width: 300px;
+          width: 100%;
           margin: 0;
-          background: $whiteColor;
           cursor: $pointer;
-          transition: 0.4s ease-in;
+          transition: 0.3s ease-in-out;
 
-          &:hover { box-shadow: inset 0px 2px 300px 107px #99f3bd }
+          &:hover {
+            box-shadow: inset 0px 2px 333px 107px rgba(0, 121, 250, 0.4);
+            color: white;
+          }
         }
 
         .halls {
-          p {
-            padding-left: 2rem;
-            font-size: 0.9em;
-          }
+          p { padding-left: 1.5rem; font-size: 0.9em }
 
           .movies {
             div {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              width: 300px;
-              background: $whiteColor;
-
-              .dot {
-                height: 10px;
-                width: 10px;
-                margin-left: 3rem;
-                padding: 0.2rem;
-                background-color: $defaultColor;
-                border-radius: 50%;
-              }
+              @include flex-content;
+              width: 100%;
 
               p {
-                font-size: 0.7em;
-                padding: 0.5rem;
-                transition: 0.4s ease-in;
-
-                &:hover { box-shadow: inset 0px 2px 300px 107px #99f3bd }
+                font-size: 0.8em;
+                padding: 0.5rem 0 0.5rem 2.5rem;
+                outline: $none;
               }
             }
           }

@@ -1,0 +1,15 @@
+.home {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 3rem 0;
+  border-radius: 75px;
+  margin-left: 155px;
+  width: 70%;
+  font-size: 4rem;
+  text-align: center;
+
+  @media (max-width: 956px) { width: 80%; margin: 0 }
+}

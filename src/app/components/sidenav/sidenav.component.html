@@ -1,23 +1,38 @@
-<div class="sidenav">
-  <nav class="nav flex-column">
-    <header>
+<svg (click)="toggledSidenav = !toggledSidenav" width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-menu-button-wide-fill menu" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M14 7H2a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1zM2 6a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2H2z"/>
+  <path fill-rule="evenodd" d="M15 11H1v-1h14v1zM2 12.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM1.5 0A1.5 1.5 0 0 0 0 1.5v2A1.5 1.5 0 0 0 1.5 5h13A1.5 1.5 0 0 0 16 3.5v-2A1.5 1.5 0 0 0 14.5 0h-13zm1 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zm9.927.427l.396.396a.25.25 0 0 0 .354 0l.396-.396A.25.25 0 0 0 13.396 2h-.792a.25.25 0 0 0-.177.427z"/>
+</svg>
+
+<div class="sidenav" *ngIf="toggledSidenav">
+  <nav class="nav nav-pills flex-column">
+    <header routerLink="/" (click)="selectedMovieId = null">
       <img src="../../../assets/images/cinema_booking.png">
       <p>Cinema Booking</p>
     </header>
 
     <div class="links">
-      <div class="cinema" *ngFor="let cinema of cinemas; let cinemaIndex = index">
-        <p class="nav-link" (click)="openCinemaHallsHandler(cinemaIndex)">{{ cinema.cinema }}</p>
+      <div class="cinema" *ngFor="let cinema of cinemaService.cinemas">
+        <p class="nav-link" (click)="toggleCinemas(cinema)">
+          {{ cinema.name }}
+        </p>
 
-        <div class="halls" *ngIf="cinema.isShowHalls">
-          <div *ngFor="let cinemaHalls of cinema.halls; let hallIndex = index">
-            <p class="nav-link" (click)="openHallMoviesHandler(cinemaIndex, hallIndex)">{{ cinemaHalls.hall }}</p>
+        <div class="halls" *ngIf="cinema.isShowMenu">
+          <div *ngFor="let hall of cinema.halls">
+            <p class="nav-link" (click)="hall.isShowMenu = !hall.isShowMenu">
+              {{ hall.name }}
+            </p>
 
-            <div class="movies" *ngIf="cinemaHalls.isShowMovies">
-              <div *ngFor="let cinemaMovies of cinemaHalls.movies">
+            <div class="movies" *ngIf="hall.isShowMenu">
+              <div *ngFor="let movie of hall.movies">
                 <div>
-                  <span class="dot"></span>
-                  <p class="nav-link">{{ cinemaMovies.movie }}</p>
+                  <p
+                    class="nav-link"
+                    [ngClass]="{'active': selectedMovieId === movie.id}"
+                    (click)="navigateToMovie(cinema.id, hall.id, movie.id)"
+                  >
+                    {{ movie.name }}
+                    ({{ movie.sessions.length }} Sessions)
+                  </p>
                 </div>
               </div>
             </div>

@@ -1,1 +1,60 @@
-<p>sessions works!</p>
+<div class="info">
+  {{ selectedCinema.name }} > {{ selectedHall.name }} > {{ selectedMovie.name }}
+</div>
+
+<div class="sessions">
+  <ng-container *ngIf="selectedMovie.sessions.length > 0; else noSessionsAvailable">
+    <div class="sessions__sessions">
+      <div *ngFor="let session of selectedMovie.sessions | orderByDate" class="session">
+        <div [style.background]="selectedSession.id === session.id ? '#ccc' : 'white'" (click)="selectedSession = session">
+          <p>{{ session.date | date: 'HH:mm, d MMM, yyyy' }}</p>
+          <p>{{ selectedHall.seats - session.bookingList.length }} Available seats</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sessions__booked">
+      <ng-container *ngIf="fiveMinutesLeftHandler; else bookingList">
+        <div
+          *ngFor="let book of toArray(selectedHall.seats); let bookIndex = index"
+          [style.background]="selectedSession.bookingList.includes(bookIndex) ? '#f56a79' : '#158467'"
+          (click)="selectedBookingIndex = bookIndex"
+        >
+          <p data-toggle="modal" data-target="#confirmModal">
+            {{ selectedSession.bookingList.includes(bookIndex) ? 'Booked' : 'Book' }}
+          </p>
+        </div>
+      </ng-container>
+      <ng-template #bookingList>
+        <div class="five-minutes-left">
+          Sorry, you can't book seats anymore, since session already starting.
+        </div>
+      </ng-template>
+    </div>
+  </ng-container>
+  <ng-template #noSessionsAvailable>
+    <div class="no-sessions">
+      No sessions available
+    </div>
+  </ng-template>
+</div>
+
+<div class="modal fade" id="confirmModal" aria-labelledby="confirmModalLabel" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmModalLabel">Are you sure?</h5>
+      </div>
+
+      <div class="modal-footer justify-content-start">
+        <button class="btn btn-success" data-dismiss="modal" (click)="bookingHandler()">
+          Yes
+        </button>
+
+        <button class="btn btn-danger" data-dismiss="modal" (click)="selectedBookingIndex = null">
+          No
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

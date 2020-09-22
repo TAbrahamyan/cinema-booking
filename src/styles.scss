@@ -1,5 +1,5 @@
 @import './app/scss/fonts';
-@import './app/scss/variables';
+@import './app/app';
 
 *,
 body {
@@ -8,5 +8,10 @@ body {
   margin: 0;
   padding: 0;
   color: $defaultColor;
-  background: #F4F7FA;
+}
+
+body,
+html {
+  background: #F4F7FA !important;
+  height: 100%;
 }

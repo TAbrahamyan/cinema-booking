@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+
+import { CinemaService } from '../../services/cinemaService.service';
+import { ICinemas, IHalls } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-sidenav',
@@ -7,26 +11,35 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: [ './sidenav.component.scss' ]
 })
 
-export class SidenavComponent {
-  cinemas: any;
+export class SidenavComponent implements OnInit {
+  toggledSidenav: boolean = true;
+  selectedMovieId: number | null = null;
 
-  constructor(private http: HttpClient) {
-    this.http.get('../../../assets/db.json').subscribe((data: any): void => {
-      this.cinemas = data;
-    });
+  constructor(
+    private router: Router,
+    public cinemaService: CinemaService,
+    private breakpointObserver: BreakpointObserver,
+  ) { }
+
+  ngOnInit(): void {
+    this.breakpointObserver
+      .observe(['(min-width: 957px)'])
+      .subscribe((state: BreakpointState): void => {
+        if (state.matches) {
+          this.toggledSidenav = true;
+        } else {
+          this.toggledSidenav = false;
+        }
+      });
   }
 
-  openCinemaHallsHandler(cinemaIndex: number): void {
-    const selectedCinema = this.cinemas?.find((_: any, index: number): boolean => index === cinemaIndex);
-    selectedCinema.isShowHalls = !selectedCinema?.isShowHalls;
+  toggleCinemas(cinema: ICinemas): void {
+    cinema.isShowMenu = !cinema.isShowMenu;
+    cinema.halls.forEach((hall: IHalls) => hall.isShowMenu = false);
   }
 
-  openHallMoviesHandler(cinemaIndex: number, hallIndex: number): void {
-    const selectedCinema = this.cinemas?.find((_: any, index: number): boolean => index === cinemaIndex);
-
-    if (selectedCinema) {
-      const selectedHall = selectedCinema.halls?.find((_: any, index: number): boolean => index === hallIndex);
-      selectedHall.isShowMovies = !selectedHall?.isShowMovies;
-    }
+  navigateToMovie(cinemaId: number, hallId: number, movieId: number): void {
+    this.selectedMovieId = movieId;
+    this.router.navigate([ `/cinema/${cinemaId}/hall/${hallId}/movie/${movieId}` ]);
   }
 }
