@@ -3,8 +3,6 @@
 .menu {
   display: $none;
   margin: 0.3rem;
-  cursor: $pointer;
-
   @media (max-width: 956px) { display: block }
 }
 
@@ -42,17 +40,18 @@
         p {
           width: 100%;
           margin: 0;
+          font-size: 1.2em;
           cursor: $pointer;
           transition: 0.3s ease-in-out;
 
           &:hover {
             box-shadow: inset 0px 2px 333px 107px rgba(0, 121, 250, 0.4);
-            color: white;
+            color: $whiteColor;
           }
         }
 
         .halls {
-          p { padding-left: 1.5rem; font-size: 0.9em }
+          p { padding-left: 1.5rem; font-size: 1em }
 
           .movies {
             div {

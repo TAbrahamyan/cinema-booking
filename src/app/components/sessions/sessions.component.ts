@@ -28,7 +28,9 @@ export class SessionsComponent implements OnInit {
         this.selectedCinema = this.cinemaService.cinemas.find((cinema: ICinemas) => cinema.id === +params.get('cinemaId'));
         this.selectedHall = this.selectedCinema.halls.find((hall: IHalls) => hall.id === +params.get('hallId'));
         this.selectedMovie = this.selectedHall.movies.find((movie: IMovies) => movie.id === +params.get('movieId'));
-        this.selectedSession = this.selectedMovie.sessions[0];
+        this.selectedSession = this.selectedMovie.sessions
+          .map((session: ISessions) => session)
+          .sort((a: ISessions, b: ISessions) => new Date(a.date).getTime() - new Date(b.date).getTime())[0];
       });
     }
   }

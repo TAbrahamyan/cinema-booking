@@ -8,8 +8,9 @@
   border-radius: 75px;
   margin-left: 155px;
   width: 70%;
-  font-size: 4rem;
+  font-size: 4em;
   text-align: center;
 
   @media (max-width: 956px) { width: 80%; margin: 0 }
+  @media (max-width: 480px) { width: 100%; font-size: 3em }
 }

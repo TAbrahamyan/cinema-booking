@@ -152,7 +152,7 @@
   },
   {
     "id": 2,
-    "name": "hollywood",
+    "name": "Hollywood",
     "halls": [
       {
         "id": 3,
@@ -161,7 +161,7 @@
         "movies": [
           {
             "id": 7,
-            "name": "Fast & Furious 9",
+            "name": "Fast & Furious: Hobbs & Shaw",
             "sessions": [
               {
                 "id": 21,

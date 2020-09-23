@@ -7,7 +7,6 @@ import { ICinemas } from './interfaces';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: [ './app.scss' ]
 })
 
 export class AppComponent implements OnInit {
