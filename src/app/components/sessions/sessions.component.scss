@@ -22,7 +22,7 @@
       border-radius: 75px;
       background-color: $whiteColor;
 
-      a {
+      li:not(:last-child) {
         color: #007bff;
         &:hover { text-decoration: underline }
       }
@@ -30,6 +30,7 @@
   }
 
   &__content {
+    @include center-content;
     @include flex-content;
     flex-direction: column;
     background: $whiteColor;
@@ -37,21 +38,14 @@
     width: 80%;
     margin: 0 150px;
     padding: 3rem 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 
     @media (max-width: 1340px) { width: 60%; margin: 3rem 6rem }
 
     @media (max-width: 956px) {
-      position: inherit;
       width: 90%;
       margin: 2rem;
       padding: 2rem 0;
-      top: 0;
-      left: 0;
-      transform: translate(0, 0);
+      @include center-content(inherit, 0, 0);
     }
 
     @media (max-width: 700px) { width: 100%; margin: 1rem 0 }
@@ -81,8 +75,7 @@
     }
 
     &__booking {
-      display: $displayFlex;
-      justify-content: $center;
+      @include flex-content;
       flex-wrap: $flexWrap;
       background: $whiteColor;
       width: calc(100% / 2);

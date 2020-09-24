@@ -1,5 +1,28 @@
 @mixin flex-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: $displayFlex;
+  justify-content: $center;
+  align-items: $center;
+}
+
+@mixin center-content($position: absolute, $top: 50%, $left: 50%) {
+  position: $position;
+  top: $top;
+  left: $left;
+  transform: translate(-$left, -$top);
+}
+
+@mixin center-right-content($spanColor) {
+  @include center-content;
+  background: $whiteColor;
+  padding: 3rem 0;
+  border-radius: 75px;
+  margin-left: 155px;
+  width: 70%;
+  font-size: 4em;
+  text-align: $center;
+
+  span { color: $spanColor }
+
+  @media (max-width: 956px) { width: 80%; margin: 0 }
+  @media (max-width: 480px) { width: 100%; font-size: 3em }
 }

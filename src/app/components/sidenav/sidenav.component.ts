@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 
-import { CinemaService } from '../../services/cinemaService.service';
-import { ICinemas, IHalls } from 'src/app/interfaces';
+import { ICinemas, IHalls } from '../../interfaces';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-sidenav',
@@ -12,16 +12,19 @@ import { ICinemas, IHalls } from 'src/app/interfaces';
 })
 
 export class SidenavComponent implements OnInit {
+  cinemas: ICinemas[] = [];
   toggledSidenav: boolean = true;
   selectedMovieId: number | null = null;
 
   constructor(
     private router: Router,
-    public cinemaService: CinemaService,
+    private http: HttpClient,
     private breakpointObserver: BreakpointObserver,
   ) { }
 
   ngOnInit(): void {
+    this.http.get('./assets/db.json').subscribe((data: ICinemas[]) => this.cinemas = data);
+
     this.breakpointObserver
       .observe(['(min-width: 957px)'])
       .subscribe((state: BreakpointState): void => {
@@ -34,8 +37,8 @@ export class SidenavComponent implements OnInit {
   }
 
   toggleCinemas(cinema: ICinemas): void {
-    cinema.isShowMenu = !cinema.isShowMenu;
-    cinema.halls.forEach((hall: IHalls) => hall.isShowMenu = false);
+    cinema.collapsed = !cinema.collapsed;
+    cinema.halls.forEach((hall: IHalls) => hall.collapsed = false);
   }
 
   navigateToMovie(cinemaId: number, hallId: number, movieId: number): void {

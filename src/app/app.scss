@@ -1,2 +1,6 @@
 @import './scss/mixins';
 @import './scss/variables';
+@import './scss/fonts';
+
+.home { @include center-right-content(#007bff) }
+.page-not-found { @include center-right-content(#dc3545) }

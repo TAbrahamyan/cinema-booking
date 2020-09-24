@@ -14,13 +14,13 @@ export interface IHalls {
   id: number;
   name: string;
   seats: number;
-  isShowMenu?: boolean;
+  collapsed?: boolean;
   movies: IMovies[];
 }
 
 export interface ICinemas {
   id: number;
   name: string;
-  isShowMenu?: boolean;
+  collapsed?: boolean;
   halls: IHalls[];
 }

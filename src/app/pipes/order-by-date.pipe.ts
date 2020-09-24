@@ -5,13 +5,13 @@ import { ISessions } from '../interfaces';
 @Pipe({ name: 'orderByDate' })
 
 export class OrderByDatePipe  implements PipeTransform {
-  transform(array: ISessions): ISessions[] {
-    if (!Array.isArray(array)) {
+  transform(sessions: ISessions): ISessions[] {
+    if (!Array.isArray(sessions)) {
       return;
     }
 
-    array.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+    sessions.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
-    return array;
+    return sessions;
   }
 }

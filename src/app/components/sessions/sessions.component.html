@@ -1,8 +1,8 @@
-<div class="sessions">
+<div class="sessions" *ngIf="selectedCinema">
   <nav class="sessions__info" aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a>{{ selectedCinema.name }}</a></li>
-      <li class="breadcrumb-item"><a>{{ selectedHall.name }}</a></li>
+      <li class="breadcrumb-item">{{ selectedCinema.name }}</li>
+      <li class="breadcrumb-item">{{ selectedHall.name }}</li>
       <li class="breadcrumb-item" aria-current="page">{{ selectedMovie.name }}</li>
     </ol>
   </nav>
@@ -51,7 +51,7 @@
 <div class="modal fade" id="confirmModal" aria-labelledby="confirmModalLabel" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-body">
         <h5 class="modal-title" id="confirmModalLabel">Are you sure?</h5>
       </div>
 

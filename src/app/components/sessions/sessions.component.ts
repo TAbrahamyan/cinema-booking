@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
-import { CinemaService } from '../../services/cinemaService.service';
 import { ISessions, IMovies, IHalls, ICinemas } from '../../interfaces';
 
 @Component({
@@ -11,6 +11,7 @@ import { ISessions, IMovies, IHalls, ICinemas } from '../../interfaces';
 })
 
 export class SessionsComponent implements OnInit {
+  cinemas: ICinemas[] = [];
   selectedCinema: ICinemas;
   selectedHall: IHalls;
   selectedMovie: IMovies;
@@ -19,20 +20,20 @@ export class SessionsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    public cinemaService: CinemaService,
+    private http: HttpClient,
   ) { }
 
   ngOnInit(): void {
-    if (this.cinemaService.cinemas.length > 0) {
+    this.http.get('./assets/db.json').subscribe((data: ICinemas[]) => {
+      this.cinemas = data;
+
       this.route.paramMap.subscribe(params => {
-        this.selectedCinema = this.cinemaService.cinemas.find((cinema: ICinemas) => cinema.id === +params.get('cinemaId'));
+        this.selectedCinema = this.cinemas.find((cinema: ICinemas) => cinema.id === +params.get('cinemaId'));
         this.selectedHall = this.selectedCinema.halls.find((hall: IHalls) => hall.id === +params.get('hallId'));
         this.selectedMovie = this.selectedHall.movies.find((movie: IMovies) => movie.id === +params.get('movieId'));
-        this.selectedSession = this.selectedMovie.sessions
-          .map((session: ISessions) => session)
-          .sort((a: ISessions, b: ISessions) => new Date(a.date).getTime() - new Date(b.date).getTime())[0];
+        this.selectedSession = this.selectedMovie.sessions.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())[0];
       });
-    }
+    });
   }
 
   bookingHandler(): void {

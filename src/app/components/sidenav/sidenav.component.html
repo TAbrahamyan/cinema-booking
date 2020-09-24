@@ -2,24 +2,24 @@
 
 <div class="sidenav" *ngIf="toggledSidenav">
   <nav class="nav nav-pills flex-column">
-    <header routerLink="/" (click)="selectedMovieId = null">
+    <header class="nav__header" routerLink="/" (click)="selectedMovieId = null">
       <img src="../../../assets/images/cinema_booking.png">
       <p>Cinema Booking</p>
     </header>
 
-    <div class="links">
-      <div class="cinema" *ngFor="let cinema of cinemaService.cinemas">
+    <div class="nav__cinemas">
+      <div class="cinema" *ngFor="let cinema of cinemas">
         <p class="nav-link" (click)="toggleCinemas(cinema)">
           {{ cinema.name }}
         </p>
 
-        <div class="halls" *ngIf="cinema.isShowMenu">
+        <div class="halls" *ngIf="cinema.collapsed">
           <div *ngFor="let hall of cinema.halls">
-            <p class="nav-link" (click)="hall.isShowMenu = !hall.isShowMenu">
+            <p class="nav-link" (click)="hall.collapsed = !hall.collapsed">
               {{ hall.name }}
             </p>
 
-            <div class="movies" *ngIf="hall.isShowMenu">
+            <div class="movies" *ngIf="hall.collapsed">
               <div *ngFor="let movie of hall.movies">
                 <div>
                   <p

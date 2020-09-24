@@ -1,4 +1,9 @@
 <div>
   <app-sidenav></app-sidenav>
+
+  <div class="home" *ngIf="router.url === '/'">
+    Welcome to <span>Cinema Booking</span>
+  </div>
+
   <router-outlet></router-outlet>
 </div>

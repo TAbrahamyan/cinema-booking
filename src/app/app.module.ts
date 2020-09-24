@@ -6,13 +6,12 @@ import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { SessionsComponent } from './components/sessions/sessions.component';
-import { HomeComponent } from './components/home/home.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { OrderByDatePipe } from './pipes/order-by-date.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     SidenavComponent,
     SessionsComponent,
     OrderByDatePipe,
@@ -23,6 +22,7 @@ import { OrderByDatePipe } from './pipes/order-by-date.pipe';
     AppRoutingModule,
   ],
   providers: [],
+  entryComponents: [ PageNotFoundComponent ],
   bootstrap: [ AppComponent ]
 })
 
